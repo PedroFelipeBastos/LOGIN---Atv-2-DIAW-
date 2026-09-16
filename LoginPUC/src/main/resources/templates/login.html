@@ -11,16 +11,18 @@
             padding: 0;
             background-color: #f0f0f0; /* Cor de fundo opcional */
             overflow-x: hidden; /* Evita barra de rolagem horizontal */
-            height: 100vh;
-            position: relative;
+            min-height: 100vh;
         }
 
         /* Configuração do patinho */
         .patinho {
-            position: absolute;
-            bottom: 20px; /* Distância do chão */
-            width: 100px;  /* Tamanho do patinho */
+            position: fixed;       /* Fica sempre no rodapé da tela, mesmo rolando a página */
+            bottom: 20px;          /* Distância do chão */
+            left: -120px;
+            width: 100px;          /* Tamanho do patinho */
             height: auto;
+            z-index: 10;
+            pointer-events: none;  /* Não atrapalha cliques nos botões e links */
 
             /* Aplica a animação: nome, duração, ciclo infinito e velocidade constante */
             animation: andar 10s linear infinite;
@@ -56,7 +58,7 @@
         </div>
         <div class="login-form">
             <form th:action="@{/login}" method="post" class="login-form">
-                <h4 class="login-tittle">Login</h4>
+                <h4 class="login-title">Login</h4>
                 <input type="text" id="username" name="username" placeholder="username" required>
                 <input type="password" id="password" name="password" placeholder="senha" required>
                 <div class="login-button-container">
@@ -64,13 +66,14 @@
                 </div>
                 <p class="login-redirect-options">
                     Ainda não tem cadastro? <br>
-                    <a href="/register">Cadastre-se</a>
-                    <a href="/recoverpassword">Esqueceu sua senha?</a>
+                    <a th:href="@{/register}">Cadastre-se</a>
+                    <a th:href="@{/recoverpassword}">Esqueceu sua senha?</a>
                 </p>
             </form>
         </div>
     </div>
-    <img class="patinho" src="https://giphy.com" alt="Patinho andando">
-</body>
 
+    <!-- Patinho andando (SVG animado em static/images) -->
+    <img class="patinho" th:src="@{/images/patinho.svg}" alt="Patinho andando">
+</body>
 </html>
