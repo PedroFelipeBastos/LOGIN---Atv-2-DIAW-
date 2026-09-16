@@ -2,6 +2,10 @@
 
 Aplicação web com telas de login, cadastro e recuperação de senha, feita com Spring Boot e Thymeleaf.
 
+## Integrantes
+- Arthur Gabriel
+- Pedro Felipe
+
 ## Tecnologias
 
 - Java 25
