@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+</head>
+<body>
+<div class="register-container">
+    <div class="register-image-logo-container">
+        <img th:src="@{/images/logo-puc.png}" alt="PUC Minas">
+    </div>
+
+    <div class="register-form">
+        <h2 class="register-title">Bem-vindo<span th:if="${username}" th:text="', ' + ${username}"></span>!</h2>
+        <p class="register-description">Login realizado com sucesso.</p>
+        <p class="register-redirect-options">
+            <a th:href="@{/login}">Sair</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
